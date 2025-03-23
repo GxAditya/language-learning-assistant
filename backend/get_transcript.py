@@ -3,7 +3,7 @@ from typing import Optional, List, Dict
 
 
 class YouTubeTranscriptDownloader:
-    def __init__(self, languages: List[str] = ["ja", "en"]):
+    def __init__(self, languages: List[str] = ["hi", "en"]):
         self.languages = languages
 
     def extract_video_id(self, url: str) -> Optional[str]:
@@ -76,6 +76,7 @@ def main(video_url, print_transcript=False):
     
     # Get transcript
     transcript = downloader.get_transcript(video_url)
+    downloader.save_transcript(transcript, video_id)
     
     if transcript:
         # Save transcript
@@ -94,6 +95,6 @@ def main(video_url, print_transcript=False):
         print("Failed to get transcript")
 
 if __name__ == "__main__":
-    video_id = "https://www.youtube.com/watch?v=sY7L5cfCWno&list=PLkGU7DnOLgRMl-h4NxxrGbK-UdZHIXzKQ"  # Extract from URL: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    video_id = "https://www.youtube.com/watch?v=RZC33SMlAYE&list=PL3SQxlU5xkuBuUMKXZYv__f4IToDZi1Dm&index=1"  # Extract from URL: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     transcript = main(video_id, print_transcript=True)
         

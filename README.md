@@ -1,44 +1,69 @@
-# language-learning-assistant
-This is for the generative AI bootcamp
+# Hindi Language Learning Assistant
 
-**Difficulty:** Level 200 *(Due to RAG implementation and multiple AWS services integration)*
+An intelligent, progressive learning tool powered by RAG (Retrieval Augmented Generation) that helps users learn Hindi through interactive exercises and contextual guidance.
 
-**Business Goal:**
-A progressive learning tool that demonstrates how RAG and agents can enhance language learning by grounding responses in real Japanese lesson content. The system shows the evolution from basic LLM responses to a fully contextual learning assistant, helping students understand both the technical implementation and practical benefits of RAG.
+## Project Overview
 
-**Technical Uncertainty:**
-1. How effectively can we process and structure bilingual (Japanese/English) content for RAG?
-2. What's the optimal way to chunk and embed Japanese language content?
-3. How can we effectively demonstrate the progression from base LLM to RAG to students?
-4. Can we maintain context accuracy when retrieving Japanese language examples?
-5. How do we balance between giving direct answers and providing learning guidance?
-6. What's the most effective way to structure multiple-choice questions from retrieved content?
+**Difficulty Level:** Intermediate (Level 200) 
+> *Requires understanding of RAG implementation and AWS service integration*
 
-**Technical Restrictions:**
-* Must use Amazon Bedrock for:
-   * API (converse, guardrails, embeddings, agents) (https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
-     * Aamzon Nova Micro for text generation (https://aws.amazon.com/ai/generative-ai/nova)
+### Business Goal
+
+This application demonstrates how RAG and intelligent agents enhance language learning by grounding responses in authentic Hindi lesson content. The system showcases the evolution from basic LLM responses to a fully contextual learning assistant, providing both practical language learning value and technical insights into RAG implementation.
+
+### Key Features
+
+- **Progressive Learning Stages**: From basic chat to fully interactive exercises
+- **YouTube Transcript Processing**: Converts Hindi lesson videos into learning materials
+- **Structured Content Extraction**: Identifies dialogues, vocabulary, and language patterns
+- **Vector-Based Retrieval**: Contextual responses based on relevant language examples
+- **Interactive Practice**: Dialogue scenarios, vocabulary quizzes, and listening exercises
+
+## Technical Implementation
+
+### Core Technologies
+
+* **Amazon Bedrock**:
+   * API integration (converse, guardrails, embeddings, agents) ([AWS Boto3 Documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html))
+   * Amazon Nova Micro for text generation ([AWS Nova Documentation](https://aws.amazon.com/ai/generative-ai/nova))
    * Titan for embeddings
-* Must implement in Streamlit, pandas (data visualization)
-* Must use SQLite for vector storage
-* Must handle YouTube transcripts as knowledge source (YouTubeTranscriptApi: https://pypi.org/project/youtube-transcript-api/)
-* Must demonstrate clear progression through stages:
-   * Base LLM
-   * Raw transcript
-   * Structured data
-   * RAG implementation
-   * Interactive features
-* Must maintain clear separation between components for teaching purposes
-* Must include proper error handling for Japanese text processing
-* Must provide clear visualization of RAG process
-* Should work within free tier limits where possible
+* **Frontend**: Streamlit, pandas (data visualization)
+* **Vector Storage**: ChromaDB with SQLite backend
+* **Content Source**: YouTube transcripts via [YouTubeTranscriptApi](https://pypi.org/project/youtube-transcript-api/)
 
-This structure:
-1. Sets clear expectations
-2. Highlights key technical challenges
-3. Defines specific constraints
-4. Keeps focus on both learning outcomes and technical implementation
+### System Architecture
 
-## Knowledgebase
+The application demonstrates clear progression through five key stages:
 
-https://github.com/chroma-core/chroma
+1. **Base LLM**: Direct interaction with Amazon Nova Micro
+2. **Raw Transcript**: YouTube transcript processing and analysis
+3. **Structured Data**: Extraction of language pairs, dialogues, and vocabulary
+4. **RAG Implementation**: Vector storage and contextual retrieval
+5. **Interactive Features**: Generated learning exercises based on content
+
+## Technical Challenges
+
+1. Processing and structuring bilingual (Hindi/English) content for RAG
+2. Optimal chunking and embedding of Hindi language content
+3. Demonstrating progression from base LLM to RAG to students
+4. Maintaining context accuracy when retrieving Hindi language examples
+5. Balancing between direct answers and providing learning guidance
+6. Structuring effective multiple-choice questions from retrieved content
+
+## Installation and Usage
+
+1. Clone the repository
+2. Install dependencies: `pip install -r backend/requirements.txt`
+3. Set up AWS credentials for Bedrock access
+4. Run the application: `streamlit run frontend/main.py`
+
+## Development Guidelines
+
+* Maintain clear separation between components for teaching purposes
+* Include proper error handling for Hindi text processing
+* Provide clear visualization of the RAG process
+* Design within AWS free tier limits where possible
+
+## Resources
+
+* [ChromaDB Documentation](https://github.com/chroma-core/chroma)
